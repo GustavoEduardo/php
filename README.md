@@ -1,0 +1,1 @@
+Esse repositório tm como objetivo armazenar o meu conhecimento adquirido em PHP. Tamém serve como material de apoio para os fundamentos básicos da linguagem e assuntos mais utilizados no dia a dia. Os assuntos estão divididos por pastas e seguem as aulas do curso de PHP7 da hcode disponivel na Udemy.
