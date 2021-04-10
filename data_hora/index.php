@@ -1,6 +1,6 @@
 <?php
   echo 'date()<br>';
-  echo date("l, d/m/Y H:i:s");//ecebe apenas um parâmetro: o formato de data.
+  echo date("l, d/m/Y H:i:s");//recebe apenas um parâmetro: o formato de data.
 
 
   echo '<br><br><br>time()<br>';
