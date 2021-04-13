@@ -5,13 +5,15 @@ require_once("config.php");
 
 class Usuario{
 
+	public $desNome;
 	public $idUsuario;
 	public $desLogin;
 	public $desSenha;
 	public $dtCadastro;
 
 
-	function __construct($login = "", $pass = ""){
+	function __construct($nome = "", $login = "", $pass = ""){
+		$this->desNome = $nome;
 		$this->desLogin = $login;
 		$this->desSenha = $pass;
 
@@ -57,7 +59,7 @@ class Usuario{
 	public static function list(){
 		$sql = new Sql();
 
-		return $sql->select("SELECT * FROM tb_usuarios ORDER BY idusuario");
+		return $sql->select("SELECT * FROM tb_usuarios ORDER BY desnome");
 		
 
 	}//Lista todos os usuarios
@@ -75,10 +77,10 @@ class Usuario{
 
 
 
-	function insert($login, $pass){
+	function insert($nome, $login, $pass){
 		$sql = new Sql();
 
-		$sql->consulta("INSERT INTO tb_usuarios(deslogin, dessenha) VALUES(:LOGIN, :PASS);",array(':LOGIN' => $login, ':PASS' => $pass));
+		$sql->consulta("INSERT INTO tb_usuarios(desnome, deslogin, dessenha) VALUES(:NOME, :LOGIN, :PASS);",array(':NOME' => $nome,':LOGIN' => $login, ':PASS' => $pass));
 
 		echo "dasos inseridos com sucesso!";
 
@@ -86,10 +88,10 @@ class Usuario{
 
 
 
-	function update($login, $pass, $id){
+	function update($nome, $login, $pass, $id){
 		$sql = new Sql();
 
-		$sql->consulta("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :PASS WHERE idusuario = :ID;",array(':LOGIN' => $login, ':PASS' => $pass, ':ID' => $id));
+		$sql->consulta("UPDATE tb_usuarios SET desnome= :NOME, deslogin = :LOGIN, dessenha = :PASS WHERE idusuario = :ID;",array(':NOME' => $nome, ':LOGIN' => $login, ':PASS' => $pass, ':ID' => $id));
 
 	}//Insere um novo usuario no banco
 
@@ -99,7 +101,8 @@ class Usuario{
 		$sql = new Sql();
 
 		$sql->consulta("DELETE FROM tb_usuarios WHERE idusuario = :ID;",array(':ID' => $this->idUsuario));
-	
+		
+		$this->desNome=null;
 		$this->idUsuario= null;
 		$this->desLogin = null;
 		$this->desSenhas = null;
@@ -115,6 +118,7 @@ class Usuario{
 
 	function setData($data){
 
+		$this->desNome= $data["desnome"];
 		$this->idUsuario= $data["idusuario"];
 		$this->desLogin= $data["deslogin"];
 		$this->desSenha= $data["dessenha"];
@@ -127,6 +131,7 @@ class Usuario{
 
 	function __toString(){
 		return json_encode(array(
+			"desnome" =>$this->desNome,
 			"idusuario" =>$this->idUsuario,
 			"deslogin"=>$this->desLogin,
 			"dessenha"=>$this->desSenha,

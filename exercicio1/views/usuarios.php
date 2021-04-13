@@ -28,7 +28,14 @@
   
 </head>
 
-<body> 
+<body>
+    <div class="row mt-5">
+        <div class="col-lg-6 offset-3">
+            <a href="sair.php" class="btn btn-sm btn-danger" title="Sair">
+                <i class="fa fa-times-circle"></i> Sair
+            </a>
+        </div>
+    </div>
 <div class="row mt-5">
     <div class="col-lg-6 offset-3">
         <div class="card">
@@ -41,6 +48,7 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">Nome</th>
                             <th scope="col">Login</th>
                             <th scope="col">Senha</th>
                             <th scope="col">Ações</th>
@@ -51,6 +59,7 @@
                         foreach ($usuarios as $user) {?>
                         <tr>
                             <th scope="row"><?php echo $user["idusuario"]; ?></th>
+                            <td><?php echo $user["desnome"]; ?></td>
                             <td><?php echo $user["deslogin"]; ?></td>
                             <td><?php echo $user["dessenha"]; ?></td>
                             <td>

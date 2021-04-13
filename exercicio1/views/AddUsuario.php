@@ -44,7 +44,14 @@
             </div>
             <div class="card-body">
                 <form action="add.php" method="POST">
-                     
+                    <div class="form-group">
+                        <label class=" form-control-label">Nome</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                            <i class="fa fa-user-o"></i></div>
+                            <input name="nome" class="form-control" type="text">
+                        </div>
+                    </div>                     
                     <div class="form-group">
                         <label class=" form-control-label">Usuário</label>
                         <div class="input-group">
