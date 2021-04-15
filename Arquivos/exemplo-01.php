@@ -8,11 +8,11 @@ if(!is_dir($path)){
 //rmdir("img")//remove
 
 $dir = scandir($path);
+//var_dump($dir);
+echo "<br><br>";
+
 
 $data = array();
-
-var_dump($dir);
-echo "<br><br>";
 
 foreach ($dir as $img) {
 	if(!in_array($img, array(".",".."))){
@@ -21,23 +21,15 @@ foreach ($dir as $img) {
 		$info = pathinfo($filename);
 
 		$info["size"] = filesize($filename);
-		$info["date"] = date("d/m/Y, filemtime($filename)");
+		$info["modified"] = date("d/m/Y H:i:s", filemtime($filename));
+		$info["url"] = "http://localhost/Arquivos/".str_replace("\\", "/", $filename);
 		array_push($data, $info);
-
 	}
 	
 }
-
-
+//echo str_replace("world","Peter","Hello world!");
 echo json_encode($data);
 
 
-
-/*
-
-
-//url concatena caminho com filename
-str_repleace("\\","/", $fn)
-*/
 
 ?>
