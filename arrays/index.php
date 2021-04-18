@@ -15,7 +15,7 @@ echo "</br></br>";
 echo json_encode($funcionarios);//transforma um array em um json
 echo "</br></br>";
 $json_string = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
-$json_array = json_decode($json_string, true);//tranforma um json em um array, true para adicionar valores e não objeto
+$json_array = json_decode($json_string, true);//tranforma um json em um array, true para retornar array, e não obj
 
 print_r($json_array);
 
