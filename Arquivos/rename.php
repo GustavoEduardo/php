@@ -8,6 +8,8 @@ if(!file_exists($dir1.DIRECTORY_SEPARATOR.$filename)){
 	$file = fopen($dir1.DIRECTORY_SEPARATOR.$filename, "w+");
 
 	fwrite($file, "arquivo para a aula do rename.php");
+}else{
+	echo "Arquivo não existe";
 }
 
 rename($dir1.DIRECTORY_SEPARATOR.$filename, $dir2.DIRECTORY_SEPARATOR.$filename);

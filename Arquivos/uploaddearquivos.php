@@ -27,9 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		mkdir($dirUploads);
 	}
 
-	if(move_uploaded_file($file["tmp_name"],$dirUploads.DIRECTORY_SEPARATOR.$file["name"] )){//move da pasta temporaria para a apsta que eu criei
+	if(move_uploaded_file($file["tmp_name"],$dirUploads.DIRECTORY_SEPARATOR.$file["name"] )){//move da pasta temporaria para a pasta que eu criei
 
-		echo "Upload realizado com secesso";//aqui posso salvar no banco.
+		//aqui posso salvar no banco.
+		echo "Upload realizado com secesso";
+
 
 	}else{
 		throw new Exception("Não foi possivel realizar o upload! ");

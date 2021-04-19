@@ -30,6 +30,8 @@ if(file_exists($filename)){
 	 echo json_encode($data);
 
 
+}else{
+	echo "arquivo $filename não encontrado.";
 }
 
 ?>

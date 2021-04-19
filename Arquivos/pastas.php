@@ -7,17 +7,17 @@ if(!is_dir($path)){
 }
 //rmdir("img")//remove a pasta
 
-$dir = scandir($path);
+$dir = scandir($path);//joga o conteudo da pasta em $dir
 //var_dump($dir);
 echo "<br><br>";
 
 
-$data = array();
+$data = array();//informações do conteudo pa pasta serão armazenadas aqui
 
-foreach ($dir as $name) {
-	if(!in_array($name, array(".",".."))){
+foreach ($dir as $arquivo) {
+	if(!in_array($arquivo, array(".",".."))){
 
-		$caminho = $path.DIRECTORY_SEPARATOR.$name;
+		$caminho = $path.DIRECTORY_SEPARATOR.$arquivo;
 		$info = pathinfo($caminho);
 
 		$info["size"] = filesize($caminho);
