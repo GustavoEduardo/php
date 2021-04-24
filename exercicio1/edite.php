@@ -2,6 +2,10 @@
 
 require_once("config.php");
 
+if(empty($_SESSION["id"])){
+	header("Location:index.php");
+}
+
 $user = new Usuario();
 $user->loadById($_GET["id"]);
 

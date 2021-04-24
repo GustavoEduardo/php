@@ -76,6 +76,14 @@ class Usuario{
 
 
 
+	public static function searchByName($nome){
+
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tb_usuarios WHERE desnome LIKE :SEARCH",array("SEARCH" => "%".$nome."%" ));
+	}//lista todos os usuarios pelo Nome
+
+
 
 	function insert($nome, $login, $pass){
 		$sql = new Sql();
@@ -93,7 +101,7 @@ class Usuario{
 
 		$sql->consulta("UPDATE tb_usuarios SET desnome= :NOME, deslogin = :LOGIN, dessenha = :PASS WHERE idusuario = :ID;",array(':NOME' => $nome, ':LOGIN' => $login, ':PASS' => $pass, ':ID' => $id));
 
-	}//Insere um novo usuario no banco
+	}//Altera usuario pelo id
 
 
 
@@ -111,7 +119,7 @@ class Usuario{
 		echo "dasos deletados do banco";
 
 
-	}//Insere um novo usuario no banco
+	}//Deleta um usuario prlo id
 
 
 

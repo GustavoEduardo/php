@@ -1,6 +1,9 @@
 <?php
 
 require_once("config.php");
+if(empty($_SESSION["id"])){
+	header("Location:index.php");
+}
 
 include "views/AddUsuario.php";
 

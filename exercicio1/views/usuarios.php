@@ -29,13 +29,11 @@
 </head>
 
 <body>
-    <div class="row mt-5">
+    <!--<div class="row mt-5">
         <div class="col-lg-6 offset-3">
-            <a href="sair.php" class="btn btn-sm btn-danger" title="Sair">
-                <i class="fa fa-times-circle"></i> Sair
-            </a>
+            
         </div>
-    </div>
+    </div>-->
 <div class="row mt-5">
     <div class="col-lg-6 offset-3">
         <div class="card">
@@ -43,6 +41,17 @@
                 <strong class="card-title">Usuários</strong>
             </div>
             <div class="card-body">
+                <form action="pesquisar.php" method="POST">
+                    <div class="row">
+                        <p>Encontrar</p>
+                        <div class="input-group input-group-sm mb-3">
+                            <input placeholder="Digite o Login ou Nome do usuário" name="search" type="text" class="form-control">
+                            <span class="input-group-append">
+                                <button class="btn btn-info btn-flat fa fa-search"></button>
+                              </span>
+                        </div>
+                    </div>
+                </form>
                 
                 <table class="table">
                     <thead>
@@ -74,8 +83,10 @@
                     <?php } ?>
                     </tbody>
                 </table>
-                <div class="col-lg-6 mt-3">
+                <div class="col-lg-12 mt-5">
                     <a href="add.php" class="btn btn-lg btn-success">Adicionar</a>
+                    <a href="listar.php" class="btn btn-lg btn-info ml-5">Listar Todos</a>
+                    <a href="sair.php" class="btn btn-lg btn-danger ml-5" title="Sair">Sair</a>
                 </div>
             </div>
         </div>

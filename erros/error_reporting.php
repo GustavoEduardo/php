@@ -9,6 +9,12 @@ Posso mudar direto no php.ini
 ;   Development Value: E_ALL
 ;   Production Value: E_ALL & ~E_DEPRECATED & ~E_STRICT*/
 
-echo 1/0;
+function trataNome($a, $b){
+	
+	return $a + $b;
+}
+
+
+echo trataNome(1,"");
 
 ?>
