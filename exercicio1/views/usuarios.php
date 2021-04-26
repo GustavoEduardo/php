@@ -29,11 +29,6 @@
 </head>
 
 <body>
-    <!--<div class="row mt-5">
-        <div class="col-lg-6 offset-3">
-            
-        </div>
-    </div>-->
 <div class="row mt-5">
     <div class="col-lg-6 offset-3">
         <div class="card">
@@ -84,9 +79,10 @@
                     </tbody>
                 </table>
                 <div class="col-lg-12 mt-5">
-                    <a href="add.php" class="btn btn-lg btn-success">Adicionar</a>
-                    <a href="listar.php" class="btn btn-lg btn-info ml-5">Listar Todos</a>
-                    <a href="sair.php" class="btn btn-lg btn-danger ml-5" title="Sair">Sair</a>
+                    <a href="add.php" class="btn btn-lg btn-success ml-4 mb-3">Adicionar</a>
+                    <a href="listar.php" class="btn btn-lg btn-info ml-4 mb-3">Listar Todos</a>
+                    <a href="sair.php" class="btn btn-lg btn-danger ml-4 mb-3" title="Sair">Sair</a>
+                     <a href="gera-csv.php" class="btn btn-lg btn-warning ml-4 mb-3">Gerar CSV</a>
                 </div>
             </div>
         </div>
