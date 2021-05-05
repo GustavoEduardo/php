@@ -81,27 +81,18 @@ class Usuario{
 
 		$users = $sql->select("SELECT * FROM tb_usuarios WHERE deslogin LIKE :SEARCH",array("SEARCH" => "%".$login."%" ));
 
-
 		foreach ($users as $user) {
 			echo "<tr>
-		            <th>".$user["idusuario"]."</th>
-		            <td>".$user["desnome"]."</td>
-		            <td>".$user["deslogin"]."</td>
-		            <td>".$user["dessenha"]."</td>
-		            <td>
-                        <a href='delete.php?id=".$user['idusuario']."' class='btn btn-sm btn-danger' title='excluir'>
-                            <i class='fa fa-trash'></i>
-                        </a>
-                        <a href='edite.php?id=".$user['idusuario']."' class='btn btn-sm btn-info' title='editar'>
-                            <i class='fa fa-pencil'></i>
-                        </a>
-                    </td>
-	        	</tr>";
+		  		<td>".$user["idusuario"]."</th>
+			    <td>".$user["desnome"]."</td>
+			    <td>".$user["deslogin"]."</td>
+			    <td>".$user["dessenha"]."</td>
+				</tr>";
 		}
 
+			
 		
-	}//lista todos os usuarios pelo login correspondente a pesquisaAjax
-
+	}//lista todos os usuarios pelo login correspondente a pesquisa Ajax
 
 
 

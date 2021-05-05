@@ -24,6 +24,35 @@
 
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+    <script src="jquery.2.1.3.min.js"></script>
+    <script>
+
+            function searchLogin(){
+                var search = document.getElementById('search').value;         
+           
+
+            $.ajax
+            ({
+                //Configurações
+                type: 'POST',
+                dataType: 'html',
+                url: 'pesquisarAjax.php',
+                beforeSend: function () {
+                    $("#dados").html("<img src='loading.gif' id='load'>");
+                },
+                //Dados para envio
+                data: {search: search},
+                //função que será executada quando a solicitação for finalizada.
+                success: function (msg){                    
+
+                    $("#dados").html(msg);                  
+        
+                }
+            });
+
+            }
+
+    </script>
 
   
 </head>
@@ -36,17 +65,23 @@
                 <strong class="card-title">Usuários</strong>
             </div>
             <div class="card-body">
-                <form action="pesquisar.php" method="POST">
+                <form action="pesquisarAjax.php" method="POST">
                     <div class="row">
                         <p>Encontrar</p>
                         <div class="input-group input-group-sm mb-3">
-                            <input placeholder="Digite o Login ou Nome do usuário" name="search" type="text" class="form-control">
+                            <input placeholder="Digite o Login do usuário" id="search" name="search" type="text" class="form-control" onkeyup="searchLogin();">
                             <span class="input-group-append">
-                                <button class="btn btn-info btn-flat fa fa-search"></button>
+                                <a class="btn btn-info btn-flat fa fa-search"></a>
                               </span>
                         </div>
                     </div>
                 </form>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                        <div class="col-md-10" id="conteudo"></div>                        
+                    <div class="col-md-1"></div>
+                </div>
+
                 
                 <table class="table">
                     <thead>
@@ -58,8 +93,13 @@
                             <th scope="col">Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php
+                    <tbody id="dados">
+                    <?php
+
+                    if ($usuarios == null) {
+                        $usuarios = $user->searchByName($_POST["search"]);
+                    }
+
                         foreach ($usuarios as $user) {?>
                         <tr>
                             <th scope="row"><?php echo $user["idusuario"]; ?></th>
@@ -76,13 +116,14 @@
                             </td>
                         </tr>
                     <?php } ?>
+                       
                     </tbody>
                 </table>
-                <div class="col-lg-12 mt-5">
+                <div class="col-md-12 mt-5">
                     <a href="add.php" class="btn btn-lg btn-success ml-4 mb-3">Adicionar</a>
-                    <a href="listar.php" class="btn btn-lg btn-info ml-4 mb-3">Listar Todos</a>
+                    <a href="listar.php" class="btn btn-lg btn-warning ml-4 mb-3">Listar Todos</a>
                     <a href="sair.php" class="btn btn-lg btn-danger ml-4 mb-3" title="Sair">Sair</a>
-                     <a href="gera-csv.php" class="btn btn-lg btn-warning ml-4 mb-3">Gerar CSV</a>
+                     <a href="gera-csv.php" class="btn btn-lg btn-primary ml-4 mb-3">Gerar CSV</a>
                 </div>
             </div>
         </div>

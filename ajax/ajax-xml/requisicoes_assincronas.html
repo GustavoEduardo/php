@@ -11,6 +11,7 @@
 		<script>
 
 			function requisitarPagina(url) {
+                document.getElementById('conteudo').innerHTML = ''//limpa o conteudo da div
 
 				//incluir o gif de loading na página
 				if(!document.getElementById('loading')) {
@@ -29,14 +30,17 @@
 
 				//onready... alterado a cada estado da req.
 				ajax.onreadystatechange = () => {
-					if(ajax.readyState == 4) {
-						console.log('requisição finalizada com sucesso')
-						document.getElementById('loading').remove()
+					if(ajax.readyState == 4 && ajax.status == 200) {
+                        document.getElementById('conteudo').innerHTML = ajax.responseText
 					}
+                    if(ajax.readyState == 4 && ajax.status == 404) {
+                         document.getElementById('conteudo').innerHTML = 'Requisição finalizada. Requisição não encontrada no servidor. status: '+ ajax.status
+                    }
 				}
 
+
 				ajax.send()
-				//console.log(ajax)
+				//console.log(ajax)//aqui tem varios atributos, incluindo o responseText
 			}
 
 		</script>
