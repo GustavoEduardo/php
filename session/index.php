@@ -11,6 +11,6 @@ if(isset($_SESSION["NOME"])){
 
 
 session_regenerate_id();
-echo "Id: ".session_id();
+echo "Id da sessão: ".session_id();
 
 ?>
