@@ -1,0 +1,27 @@
+{
+  "name": "gustavoeduardo/phptips001",
+  "description": "Conhecendo Composer | Configurando a IDE | PHP Tips 01",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gustavo",
+      "email": "gustavolimaeduardo@gmail.com",
+      "role": "developer"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "autoload": {
+    "psr-4": {
+      "Souece\\": "source/"
+    },
+    "files": [
+      "source/Config.php"
+    ]
+  },
+  "require": {
+    "phpmailer/phpmailer": "v6.4.*"
+  }
+}

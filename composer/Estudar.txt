@@ -1,0 +1,5 @@
+Estudar
+Licenças do projeto no composer
+Versões "vazio, dev, alfa, beta, stable"
+
+Padrões psr4 no php-fig.org
